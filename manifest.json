@@ -1,0 +1,22 @@
+{
+    "name":"SC Helper 3",
+    "short_name":"schelper3",
+    "description":"SC Scripts",
+    "version":"3.0.0",
+    "homepage_url":"https://github.com/risonakamo/schelper3",
+    "manifest_version":3,
+    "author":"risonakamo",
+
+    "permissions": [
+        "tabs"
+    ],
+
+    "action":{
+        "default_title":"SC Helper 3",
+        "default_popup":"build/popup.html"
+    },
+
+    "content_scripts": [
+
+    ]
+}
