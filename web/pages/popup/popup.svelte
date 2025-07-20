@@ -2,4 +2,4 @@
 
 </script>
 
-hello
+<a href="javascript:void(0)">Test</a>
