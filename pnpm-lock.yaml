@@ -14,12 +14,18 @@ importers:
       '@tsconfig/svelte':
         specifier: ^5.0.4
         version: 5.0.4
+      '@types/async':
+        specifier: ^3.2.24
+        version: 3.2.24
       '@types/chrome':
         specifier: ^0.1.1
         version: 0.1.1
       '@types/lodash':
         specifier: ^4.17.20
         version: 4.17.20
+      async:
+        specifier: ^3.2.6
+        version: 3.2.6
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -436,6 +442,9 @@ packages:
   '@tsconfig/svelte@5.0.4':
     resolution: {integrity: sha512-BV9NplVgLmSi4mwKzD8BD/NQ8erOY/nUE/GpgWe2ckx+wIQF5RyRirn/QsSSCPeulVpc3RA/iJt6DpfTIZps0Q==}
 
+  '@types/async@3.2.24':
+    resolution: {integrity: sha512-8iHVLHsCCOBKjCF2KwFe0p9Z3rfM9mL+sSP8btyR5vTjJRAqpBYD28/ZLgXPf0pjG1VxOvtCV/BgXkQbpSe8Hw==}
+
   '@types/chrome@0.1.1':
     resolution: {integrity: sha512-MLtFW++/n+OPQIaf5hA6pmURd3Zn+OxuvASyf2mYh8B8pHDpbhHjwlVHMw3H/aJC9Z7Z3itO0AFaZeegrGk0yA==}
 
@@ -466,6 +475,9 @@ packages:
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
+
+  async@3.2.6:
+    resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -1028,6 +1040,8 @@ snapshots:
 
   '@tsconfig/svelte@5.0.4': {}
 
+  '@types/async@3.2.24': {}
+
   '@types/chrome@0.1.1':
     dependencies:
       '@types/filesystem': 0.0.36
@@ -1050,6 +1064,8 @@ snapshots:
   ansi-regex@6.1.0: {}
 
   aria-query@5.3.2: {}
+
+  async@3.2.6: {}
 
   axobject-query@4.1.0: {}
 

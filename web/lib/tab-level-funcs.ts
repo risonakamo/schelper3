@@ -1,6 +1,7 @@
 // lib implementing tab level function collection
 
 import _ from "lodash";
+import async from "async";
 
 const TabLevelFuncs:TabLevelFunc[]=[
     {
@@ -11,6 +12,14 @@ const TabLevelFuncs:TabLevelFunc[]=[
         actionFunc:exhOpenLargeImagesAll,
     }
 ];
+
+/** return list of tab level funcs which report they are able to execute */
+export async function getAllRunnableTabFuncs():Promise<TabLevelFunc[]>
+{
+    return async.filter(TabLevelFuncs,async (tabFunc:TabLevelFunc):Promise<boolean>=>{
+        return tabFunc.shouldExecute();
+    });
+}
 
 /** returns true if there is 1 tab in the window with a certain
  *  url pattern. curried function to work with shouldExecute */

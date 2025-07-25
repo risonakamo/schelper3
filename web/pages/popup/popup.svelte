@@ -1,4 +1,13 @@
 <script lang="ts">
+import {onMount} from "svelte";
+import {getAllRunnableTabFuncs} from "@/lib/tab-level-funcs";
+
+onMount(()=>{
+    (async ()=>{
+        console.log(await getAllRunnableTabFuncs());
+    })();
+});
+
 async function onTestClick(e:MouseEvent):Promise<void>
 {
     e.preventDefault();
