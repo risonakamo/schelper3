@@ -7,8 +7,8 @@ interface TabLevelFunc
     displayText:string
 
     // function that decides if this tab level function should execute
-    shouldExecute():boolean
+    shouldExecute():Promise<boolean>
 
     // the tab level function logic itself
-    actionFunc():void
+    actionFunc():Promise<void>
 }
