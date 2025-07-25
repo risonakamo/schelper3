@@ -5,12 +5,6 @@ import {LogLevel,RollupLog,LogHandler} from "rollup";
 
 declare const __dirname:string;
 
-interface TargetSettings
-{
-    name:string
-    path:string
-}
-
 export default defineConfig({
     mode:"development",
 
@@ -30,9 +24,9 @@ export default defineConfig({
     build:{
         lib:{
             name:"schelper",
-            fileName:"open-exh-full-size",
+            fileName:"schelper",
             entry:{
-                e1:`${__dirname}/web/content-scripts/open-exh-full-size.ts`,
+                e1:`${__dirname}/web/content-scripts/schelper-cs-main.ts`,
             },
             formats:["iife"]
         },
