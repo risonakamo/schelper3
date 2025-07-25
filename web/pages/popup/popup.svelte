@@ -2,18 +2,27 @@
 import {onMount} from "svelte";
 import {getAllRunnableTabFuncs} from "@/lib/tab-level-funcs";
 
+var runnableFuncs:TabLevelFunc[]=$state([]);
+
+// on load, get the runnable funcs
 onMount(()=>{
     (async ()=>{
-        console.log(await getAllRunnableTabFuncs());
+        runnableFuncs=await getAllRunnableTabFuncs();
     })();
 });
 
-async function onTestClick(e:MouseEvent):Promise<void>
+/** clicked on run func link. execute the run func */
+function onRunfuncLinkClick(runFunc:TabLevelFunc)
 {
-    e.preventDefault();
-    const result:chrome.tabs.Tab[]=await chrome.tabs.query({});
-    console.log(result);
+    return (e:MouseEvent)=>{
+        e.preventDefault();
+        runFunc.actionFunc();
+    };
 }
 </script>
 
-<a href="" onclick={onTestClick}>Test</a>
+{#each runnableFuncs as runFunc (runFunc.name)}
+    <a href="" onclick={onRunfuncLinkClick(runFunc)}>
+        {runFunc.displayText}
+    </a>
+{/each}

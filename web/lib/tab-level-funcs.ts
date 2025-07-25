@@ -5,6 +5,7 @@ import async from "async";
 
 const TabLevelFuncs:TabLevelFunc[]=[
     {
+        name:"exh-open-all",
         category:"EXH",
         displayText:"Open All Images",
 
@@ -63,10 +64,9 @@ async function exhOpenLargeImagesAll():Promise<void>
 
         chrome.scripting.executeScript({
             target:{tabId:tab.id},
-            func()
-            {
-                console.log("hello from CS");
-            },
+            func:()=>{
+                console.log("hello");
+            }
         });
     }
 }

@@ -8,7 +8,12 @@
     "author":"risonakamo",
 
     "permissions": [
-        "tabs"
+        "tabs",
+        "scripting"
+    ],
+
+    "host_permissions":[
+        "https://exhentai.org/s/*"
     ],
 
     "action":{
