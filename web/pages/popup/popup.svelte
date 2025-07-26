@@ -1,6 +1,6 @@
 <script lang="ts">
 import {onMount} from "svelte";
-import {getAllRunnableTabFuncs} from "@/lib/tab-level-funcs";
+import {getAllRunnableTabFuncs} from "@/lib/tab-level/tab-level-funcs";
 
 var runnableFuncs:TabLevelFunc[]=$state([]);
 

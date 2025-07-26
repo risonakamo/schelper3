@@ -2,7 +2,7 @@
 
 import async from "async";
 
-import {oneExhTab,exhOpenLargeImagesAll} from "@/lib/tab-level-funcs-impl";
+import {oneExhTab,exhOpenLargeImagesAll} from "@/lib/tab-level/tab-level-impl";
 
 /** collection of tab level funcs */
 export const TabLevelFuncs:TabLevelFunc[]=[

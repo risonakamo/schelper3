@@ -1,6 +1,6 @@
 // contains implementations of tab level funcs
 
-import {oneTabWithUrl} from "./tab-level-funcs-lib";
+import {oneTabWithUrl} from "@/lib/tab-level/tab-level-lib";
 
 /** if url contains this text, it is a exh image page (displays 1 image) */
 export const ExhImagePageUrl:string="exhentai.org/s";
