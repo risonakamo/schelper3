@@ -25,4 +25,6 @@ function onRunfuncLinkClick(runFunc:TabLevelFunc)
     <a href="" onclick={onRunfuncLinkClick(runFunc)}>
         {runFunc.displayText}
     </a>
+{:else}
+    <p>no executable items</p>
 {/each}

@@ -3,13 +3,16 @@
 import _ from "lodash";
 import async from "async";
 
+/** if url contains this text, it is a exh image page (displays 1 image) */
+const ExhImagePageUrl:string="exhentai.org/s";
+
 const TabLevelFuncs:TabLevelFunc[]=[
     {
         name:"exh-open-all",
         category:"EXH",
         displayText:"Open All Images",
 
-        shouldExecute:oneTabWithUrl("exhentai.org/s"),
+        shouldExecute:oneTabWithUrl(ExhImagePageUrl),
         actionFunc:exhOpenLargeImagesAll,
     }
 ];
@@ -62,11 +65,19 @@ async function exhOpenLargeImagesAll():Promise<void>
             continue;
         }
 
+        if (!tab.url)
+        {
+            continue;
+        }
+
+        if (!tab.url.includes(ExhImagePageUrl))
+        {
+            continue;
+        }
+
         chrome.scripting.executeScript({
             target:{tabId:tab.id},
-            func:()=>{
-                console.log("hello");
-            }
+            files:["build-cs/schelper.iife.js"],
         });
     }
 }

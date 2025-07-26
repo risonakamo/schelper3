@@ -31,10 +31,10 @@ export default defineConfig({
             formats:["iife"]
         },
 
-        outDir:`${__dirname}/build`,
+        outDir:`${__dirname}/build-cs`,
         target:["esnext"],
         sourcemap:true,
-        // emptyOutDir:true,
+        // emptyOutDir:false,
         minify:false,
 
         rollupOptions:{
