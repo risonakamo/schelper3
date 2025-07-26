@@ -5,6 +5,7 @@
     "b-ui": "vite --config vite-ui.config.ts build -w false",
     "w-ui": "vite --config vite-ui.config.ts build -w true",
     "b-lib": "vite --config vite-lib.config.ts build -w false",
+    "w-lib": "vite --config vite-lib.config.ts build -w true",
     "check-ui": "svelte-check --threshold error"
   },
   "type": "module",
