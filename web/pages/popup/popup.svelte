@@ -21,10 +21,14 @@ function onRunfuncLinkClick(runFunc:TabLevelFunc)
 }
 </script>
 
+<style lang="sass">
+    @use "./popup.sass"
+</style>
+
 {#each runnableFuncs as runFunc (runFunc.name)}
-    <a href="" onclick={onRunfuncLinkClick(runFunc)}>
+    <p><a href="" onclick={onRunfuncLinkClick(runFunc)}>
         {runFunc.displayText}
-    </a>
+    </a></p>
 {:else}
     <p>no executable items</p>
 {/each}

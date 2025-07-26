@@ -75,6 +75,15 @@ async function exhOpenLargeImagesAll():Promise<void>
             continue;
         }
 
+        await chrome.scripting.executeScript({
+            target:{tabId:tab.id},
+            func:()=>{
+                window.localStorage.setItem("args",JSON.stringify({
+                    runScript:"open-exh-full-size",
+                } satisfies CsArgs));
+            },
+        });
+
         chrome.scripting.executeScript({
             target:{tabId:tab.id},
             files:["build-cs/schelper.iife.js"],
