@@ -1,4 +1,6 @@
-// holds actual implementations of tab level funcs
+// contains implementations of tab level funcs
+
+import {oneTabWithUrl} from "./tab-level-funcs-lib";
 
 /** if url contains this text, it is a exh image page (displays 1 image) */
 export const ExhImagePageUrl:string="exhentai.org/s";
@@ -43,4 +45,10 @@ export async function exhOpenLargeImagesAll():Promise<void>
             files:["build-cs/schelper.iife.js"],
         });
     }
+}
+
+/** returns true if there is 1 exh tab existing in the current window */
+export function oneExhTab():Promise<boolean>
+{
+    return oneTabWithUrl(ExhImagePageUrl);
 }
