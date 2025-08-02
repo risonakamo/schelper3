@@ -21,15 +21,15 @@ export function openExhFullSize():void
 /** adds key controls to ex gallery page */
 function deployExPageControls():void
 {
-    var topNavbar:HTMLElement|null=document.querySelector(".ptt");
+    const topNavbar:HTMLElement|null=document.querySelector(".ptt");
 
     if (!topNavbar)
     {
         return;
     }
 
-    var leftArrow:HTMLElement|null=topNavbar.querySelector("td");
-    var rightArrow:HTMLElement|null=topNavbar.querySelector("td:last-child");
+    const leftArrow:HTMLElement|null=topNavbar.querySelector("td");
+    const rightArrow:HTMLElement|null=topNavbar.querySelector("td:last-child");
 
     document.addEventListener("keydown",(e)=>{
         if (e.key=="a" || e.key=="A" || e.key=="ArrowLeft")
@@ -48,4 +48,26 @@ function deployExPageControls():void
             }
         }
     });
+}
+
+/** trigger download button on sc image page */
+export function scImageDownload():void
+{
+    const buttonsList:NodeListOf<HTMLElement>=document.querySelectorAll("#stats a");
+
+    if (!buttonsList.length)
+    {
+        console.error("failed to find buttons");
+        return;
+    }
+
+    const downloadButton:HTMLElement=buttonsList[buttonsList.length-1];
+
+    if (downloadButton.textContent!="Original")
+    {
+        console.error("button text mismatch");
+        return;
+    }
+
+    downloadButton.click();
 }
