@@ -2,25 +2,45 @@
 
 import _ from "lodash";
 
-/** returns true if there is 1 tab in the window with a certain
- *  url pattern(s) */
-export async function oneTabWithUrl(urls:string[]):Promise<boolean>
+/** returns number of tabs that match url strings */
+export async function numberTabsWithUrls(urls:string[]):Promise<number>
 {
     const tabs:chrome.tabs.Tab[]=await chrome.tabs.query({
         currentWindow:true,
     });
 
-    return _.some(tabs,(tab:chrome.tabs.Tab):boolean=>{
+    return _.sumBy(tabs,(tab:chrome.tabs.Tab):number=>{
         if (!tab.url)
         {
             console.warn("tab had no url",tab);
-            return false;
+            return 0;
         }
 
-        return _.some(urls,(url:string):boolean=>{
+        const matches:boolean=_.some(urls,(url:string):boolean=>{
             return !!tab.url?.includes(url);
-        })
-    });
+        });
+
+        if (matches)
+        {
+            return 1;
+        }
+
+        return 0;
+    })
+}
+
+/** should execute function that triggers if there is 1 tab that matches url patterns. returns
+ *  string or undefined as needed by should execute func */
+export async function hasTabOneOf(urls:string[]):Promise<string|undefined>
+{
+    const numTabs:number=await numberTabsWithUrls(urls);
+
+    if (numTabs<=0)
+    {
+        return undefined;
+    }
+
+    return `${numTabs}`;
 }
 
 /** run target cs script on all tabs, if the tab matches one of the urls

@@ -1,6 +1,6 @@
 // contains implementations of tab level funcs
 
-import {oneTabWithUrl, runScriptOnAllTabs} from "@/lib/tab-level/tab-level-lib";
+import {hasTabOneOf, runScriptOnAllTabs} from "@/lib/tab-level/tab-level-lib";
 
 /** exh image page (displays 1 image) */
 export const ExhImagePageUrls:string[]=["exhentai.org/s"];
@@ -25,9 +25,9 @@ export async function exhOpenLargeImagesAll():Promise<void>
 }
 
 /** returns true if there is 1 exh tab existing in the current window */
-export function oneExhTab():Promise<boolean>
+export function oneExhTab():Promise<string|undefined>
 {
-    return oneTabWithUrl(ExhImagePageUrls);
+    return hasTabOneOf(ExhImagePageUrls);
 }
 
 /** on all sc tabs, run sc open */
@@ -40,7 +40,7 @@ export async function downloadScAll():Promise<void>
 }
 
 /** finds 1 sc image tab */
-export function oneScImageTab():Promise<boolean>
+export function oneScImageTab():Promise<string|undefined>
 {
-    return oneTabWithUrl(ScImagePageUrls);
+    return hasTabOneOf(ScImagePageUrls);
 }

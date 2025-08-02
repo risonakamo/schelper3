@@ -29,6 +29,6 @@ export const TabLevelFuncs:TabLevelFunc[]=[
 export async function getAllRunnableTabFuncs():Promise<TabLevelFunc[]>
 {
     return async.filter(TabLevelFuncs,async (tabFunc:TabLevelFunc):Promise<boolean>=>{
-        return tabFunc.shouldExecute();
+        return await tabFunc.shouldExecute()!=undefined;
     });
 }
