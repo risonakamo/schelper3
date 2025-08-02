@@ -19,8 +19,10 @@ export function openExhFullSize():void
 }
 
 /** adds key controls to ex gallery page */
-function deployExPageControls():void
+export function deployExPageControls():void
 {
+    console.log("deploying ex page controls");
+
     const topNavbar:HTMLElement|null=document.querySelector(".ptt");
 
     if (!topNavbar)
@@ -53,6 +55,8 @@ function deployExPageControls():void
 /** trigger download button on sc image page */
 export function scImageDownload():void
 {
+    console.log("sc image download");
+
     const buttonsList:NodeListOf<HTMLElement>=document.querySelectorAll("#stats a");
 
     if (!buttonsList.length)

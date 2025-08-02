@@ -23,7 +23,11 @@
         "default_popup":"build/popup.html"
     },
 
-    "content_scripts": [
-
-    ]
+    "content_scripts": [{
+        "matches":[
+            "https://exhentai.org/g/*"
+        ],
+        "js":["build-cs/schelper.iife.js"],
+        "run_at":"document_end"
+    }]
 }

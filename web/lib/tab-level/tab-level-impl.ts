@@ -9,7 +9,10 @@ export const ExhImagePageUrls:string[]=["exhentai.org/s"];
 export const ScImagePageUrls:string[]=[
     "chan.sankakucomplex.com/en/posts",
     "chan.sankakucomplex.com/posts",
-]
+];
+
+/** matches exh gallery page */
+export const ExhGalleryUrl="exhentai.org/g";
 
 /** on all tabs, if it is an exh image tab, run exh open full size
  *  page script */

@@ -1,6 +1,7 @@
 // top level of schelper content script
 
-import {openExhFullSize, scImageDownload} from "@/lib/page-level-funcs";
+import {deployExPageControls, openExhFullSize, scImageDownload} from "@/lib/page-level-funcs";
+import {ExhGalleryUrl} from "@/lib/tab-level/tab-level-impl";
 
 function main():void
 {
@@ -8,7 +9,8 @@ function main():void
 
     if (!argsStr)
     {
-        console.error("failed to get args");
+        console.log("failed to get args");
+        runAutoFuncs();
         return;
     }
 
@@ -27,6 +29,17 @@ function main():void
         default:
         console.log("unknown script:",args.runScript);
         break;
+    }
+
+    window.localStorage.removeItem("args");
+}
+
+/** if failed to get args, it might be a func that should run as long as url matches certain pattern */
+function runAutoFuncs():void
+{
+    if (window.location.href.includes(ExhGalleryUrl))
+    {
+        deployExPageControls();
     }
 }
 
