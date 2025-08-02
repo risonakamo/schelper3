@@ -2,7 +2,8 @@
 
 import async from "async";
 
-import {oneExhTab,exhOpenLargeImagesAll} from "@/lib/tab-level/tab-level-impl";
+import {oneExhTab,exhOpenLargeImagesAll, oneScImageTab,
+    downloadScAll} from "@/lib/tab-level/tab-level-impl";
 
 /** collection of tab level funcs */
 export const TabLevelFuncs:TabLevelFunc[]=[
@@ -13,6 +14,14 @@ export const TabLevelFuncs:TabLevelFunc[]=[
 
         shouldExecute:oneExhTab,
         actionFunc:exhOpenLargeImagesAll,
+    },
+    {
+        name:"sc-open-all",
+        category:"SC",
+        displayText:"Open All Images",
+
+        shouldExecute:oneScImageTab,
+        actionFunc:downloadScAll,
     }
 ];
 
