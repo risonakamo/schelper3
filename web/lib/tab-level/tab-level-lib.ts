@@ -95,3 +95,68 @@ export async function runScriptOnAllTabs(
         });
     }
 }
+
+/** run script on all tabs, but delay after successfully running on 1 tab */
+export async function runScriptOnAllTabsDelay(
+    script:CsScript,
+    urlMatches:string[],
+    delay:number, // ms
+):Promise<void>
+{
+    const tabs:chrome.tabs.Tab[]=await chrome.tabs.query({
+        currentWindow:true,
+    });
+
+    for (var tab of tabs)
+    {
+        // usually happens to disallowed tabs like extension pages
+        if (!tab.id)
+        {
+            // console.error("tab had no id",tab);
+            continue;
+        }
+
+        if (!tab.url)
+        {
+            continue;
+        }
+
+        // if the tab url matches one of the url matches
+        const oneUrlMatches:boolean=_.some(urlMatches,(matchUrl:string):boolean=>{
+            return !!tab.url?.includes(matchUrl);
+        });
+
+        if (!oneUrlMatches)
+        {
+            continue;
+        }
+
+        await chrome.scripting.executeScript({
+            target:{tabId:tab.id},
+            func:(scriptArg:CsScript)=>{
+                console.log("running script:",scriptArg);
+                window.localStorage.setItem("args",JSON.stringify({
+                    runScript:scriptArg,
+                } satisfies CsArgs));
+            },
+            args:[script],
+        });
+
+        chrome.scripting.executeScript({
+            target:{tabId:tab.id},
+            files:["build-cs/schelper.iife.js"],
+        });
+
+        sleep(delay);
+    }
+}
+
+/** returns promise that delays for certain amount of ms */
+async function sleep(amount:number):Promise<void>
+{
+    await new Promise<void>((resolve)=>{
+        _.delay(()=>{
+            resolve();
+        },amount);
+    });
+}

@@ -1,6 +1,6 @@
 // contains implementations of tab level funcs
 
-import {hasTabOneOf, runScriptOnAllTabs} from "@/lib/tab-level/tab-level-lib";
+import {hasTabOneOf, runScriptOnAllTabs, runScriptOnAllTabsDelay} from "@/lib/tab-level/tab-level-lib";
 
 /** exh image page (displays 1 image) */
 export const ExhImagePageUrls:string[]=["exhentai.org/s"];
@@ -33,9 +33,10 @@ export function oneExhTab():Promise<string|undefined>
 /** on all sc tabs, run sc open */
 export async function downloadScAll():Promise<void>
 {
-    return runScriptOnAllTabs(
+    return runScriptOnAllTabsDelay(
         "open-sc-full-size",
         ScImagePageUrls,
+        2000,
     );
 }
 
