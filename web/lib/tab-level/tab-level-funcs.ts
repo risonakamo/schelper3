@@ -3,7 +3,9 @@
 import async from "async";
 
 import {oneExhTab,exhOpenLargeImagesAll, oneScImageTab,
-    downloadScAll} from "@/lib/tab-level/tab-level-impl";
+    downloadScAll,
+    onePxTab,
+    openPxImageAll} from "@/lib/tab-level/tab-level-impl";
 
 /** collection of tab level funcs */
 export const TabLevelFuncs:TabLevelFunc[]=[
@@ -22,7 +24,15 @@ export const TabLevelFuncs:TabLevelFunc[]=[
 
         shouldExecute:oneScImageTab,
         actionFunc:downloadScAll,
-    }
+    },
+    {
+        name:"pix-open-all",
+        category:"PX",
+        displayText:"Open all Pixiv Images",
+
+        shouldExecute:onePxTab,
+        actionFunc:openPxImageAll,
+    },
 ];
 
 /** return list of tab level funcs which report they are able to execute */

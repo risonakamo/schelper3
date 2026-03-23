@@ -3,7 +3,8 @@
 /** possible names of page level scripts to run */
 type CsScript=
     "open-exh-full-size"|
-    "open-sc-full-size"
+    "open-sc-full-size"|
+    "pix-open-all"
 
 /** args to cs script */
 interface CsArgs

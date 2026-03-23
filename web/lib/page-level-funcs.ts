@@ -75,3 +75,26 @@ export function scImageDownload():void
 
     downloadButton.click();
 }
+
+/** open all pixiv images in new tabs */
+export function pixOpenAllNewTab():void
+{
+    const openButton:HTMLElement|null=document.querySelector(".sc-e3cb8b83-2.dGIVWG");
+
+    if (openButton)
+    {
+        openButton.click();
+    }
+
+    setTimeout(()=>{
+        const imageList:NodeListOf<HTMLAnchorElement>=document.querySelectorAll(".sc-440d5b2c-0 a");
+        const openDelay:number=1000;
+
+        imageList.forEach((imageEl:HTMLAnchorElement,i:number):void=>{
+            setTimeout(()=>{
+                console.log("opening:",imageEl.href);
+                window.open(imageEl.href,"_blank");
+            },openDelay*i);
+        });
+    },2000);
+}

@@ -14,6 +14,11 @@ export const ScImagePageUrls:string[]=[
 /** matches exh gallery page */
 export const ExhGalleryUrl="exhentai.org/g";
 
+/** px image page (displays 1 image) */
+export const PxImagePageUrls:string[]=[
+    "https://www.pixiv.net/artworks",
+]
+
 /** on all tabs, if it is an exh image tab, run exh open full size
  *  page script */
 export async function exhOpenLargeImagesAll():Promise<void>
@@ -45,4 +50,20 @@ export async function downloadScAll():Promise<void>
 export function oneScImageTab():Promise<string|undefined>
 {
     return hasTabOneOf(ScImagePageUrls);
+}
+
+/** finds 1 px image tab */
+export function onePxTab():Promise<string|undefined>
+{
+    return hasTabOneOf(PxImagePageUrls);
+}
+
+/** run pix image open on all tabs */
+export async function openPxImageAll():Promise<void>
+{
+    return runScriptOnAllTabs(
+        "pix-open-all",
+        PxImagePageUrls,
+        0,
+    )
 }

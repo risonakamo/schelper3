@@ -15,7 +15,8 @@
     "host_permissions":[
         "https://exhentai.org/s/*",
         "https://chan.sankakucomplex.com/en/posts/*",
-        "https://chan.sankakucomplex.com/posts/*"
+        "https://chan.sankakucomplex.com/posts/*",
+        "https://www.pixiv.net/artworks/*"
     ],
 
     "action":{

@@ -1,6 +1,7 @@
 // top level of schelper content script
 
-import {deployExPageControls, openExhFullSize, scImageDownload} from "@/lib/page-level-funcs";
+import {deployExPageControls, openExhFullSize, pixOpenAllNewTab,
+    scImageDownload} from "@/lib/page-level-funcs";
 import {ExhGalleryUrl} from "@/lib/tab-level/tab-level-impl";
 
 function main():void
@@ -24,6 +25,10 @@ function main():void
 
         case "open-sc-full-size":
         scImageDownload();
+        break;
+
+        case "pix-open-all":
+        pixOpenAllNewTab();
         break;
 
         default:
