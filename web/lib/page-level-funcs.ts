@@ -79,15 +79,29 @@ export function scImageDownload():void
 /** open all pixiv images in new tabs */
 export function pixOpenAllNewTab():void
 {
-    const openButton:HTMLElement|null=document.querySelector(".sc-e3cb8b83-2.dGIVWG");
+    const openButtons:HTMLButtonElement[]=Array.from(document.querySelectorAll("button"));
+    var openButton:HTMLButtonElement|null=null;
+
+    for (const button of openButtons)
+    {
+        if (button.textContent?.trim()=="すべて見る")
+        {
+            openButton=button;
+        }
+    }
 
     if (openButton)
     {
         openButton.click();
     }
 
+    else
+    {
+        console.warn("no open button");
+    }
+
     setTimeout(()=>{
-        const imageList:NodeListOf<HTMLAnchorElement>=document.querySelectorAll(".sc-440d5b2c-0 a");
+        const imageList:NodeListOf<HTMLAnchorElement>=document.querySelectorAll("div[role='presentation'] a");
         const openDelay:number=1000;
 
         imageList.forEach((imageEl:HTMLAnchorElement,i:number):void=>{
